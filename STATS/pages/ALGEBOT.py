@@ -1,8 +1,28 @@
 import streamlit as st
 import openai
 import os
+from gtts import gTTS
+import base64
 
+# Function to generate and return audio as a downloadable link
+def generate_audio(text):
+    tts = gTTS(text, lang="en")
+    tts.save("response.mp3")
+    with open("response.mp3", "rb") as audio_file:
+        audio_bytes = audio_file.read()
+    # Encode audio to base64 for embedding in Streamlit
+    b64_audio = base64.b64encode(audio_bytes).decode()
+    audio_html = f"""
+    <audio controls>
+        <source src="data:audio/mp3;base64,{b64_audio}" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    """
+    return audio_html
 openai.api_key = os.getenv("OPENAI_API_KEY")
+# Generate response using OpenAI API
+
+
 
 # App title and description
 st.markdown("<h3 style='text-align: center;'>🤖📊ALGEBOT</h3>", unsafe_allow_html=True)
@@ -34,6 +54,8 @@ if middle_right.button("Boxplots", icon="😏", use_container_width=True):
 if far_right.button("Clear History", use_container_width=True):
     st.session_state.messages = []  # Clear the chat history
     st.success("Chat history cleared!")
+
+
 if button_prompt:
     # Add the button prompt to chat history
     st.session_state.messages.append({"role": "user", "content": button_prompt})
@@ -53,6 +75,14 @@ if button_prompt:
 
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": answer})
+
+    # Display assistant response in chat message container
+    with st.chat_message("assistant"):
+        # st.markdown(answer)
+
+    # Generate and display audio response
+        audio_html = generate_audio(answer)
+        st.markdown(audio_html, unsafe_allow_html=True)
 
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
@@ -83,6 +113,10 @@ if user_input := st.chat_input("Pick a level you want to try or ask a question")
     # Display assistant response in chat message container
     with st.chat_message("assistant"):
         st.markdown(answer)
+
+    # Generate and display audio response
+    audio_html = generate_audio(answer)
+    st.markdown(audio_html, unsafe_allow_html=True)
 
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": answer})
