@@ -5,8 +5,8 @@ import os
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # App title and description
-st.markdown("<h3 style='text-align: center;'>Algebra Practice - Finding 1VarSTATs</h3>", unsafe_allow_html=True)
-# st.markdown("<h3 style='text-align: center;'>:</h3>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align: center;'>🤖📊ALGEBOT</h3>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align: center;'>Ask Algebot a question!</h3>", unsafe_allow_html=True)
 
 # Create three columns for buttons
 left, middle_left, middle_right,far_right = st.columns(4)
