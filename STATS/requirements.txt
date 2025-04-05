@@ -1,0 +1,15 @@
+flask
+flasgger
+flask_restful
+pyairtable
+gunicorn
+openai==0.28
+requests
+pdfplumber
+pandas
+numpy
+streamlit
+flask-cors
+matplotlib
+seaborn
+openpyxl
