@@ -13,4 +13,3 @@ flask-cors
 matplotlib
 seaborn
 openpyxl
-gtts
