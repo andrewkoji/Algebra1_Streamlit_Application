@@ -6,6 +6,8 @@ import streamlit.components.v1 as components
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.stats import linregress
+import os
+
 
 def main():
     data = {
@@ -26,9 +28,9 @@ def main():
         cellLoc='center', 
         loc='center'
     )
-
+    images_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../images"))
     # Display the PNG in Streamlit
-    st.image("table.png")
+    st.image(os.path.join(images_dir, "Q34june24.png"))
     # Perform linear regression
     x = df["Caffeine Consumption(mg)"]
     y = df["Sleep Quality Score(out of 10)"]
