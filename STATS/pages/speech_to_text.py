@@ -18,8 +18,4 @@ def generate_audio(text):
         Your browser does not support the audio element.
     </audio>
     """
-    return tts
-
-
-speech = generate_audio("Hello, this is a test of the text-to-speech functionality.")
-speech.save("response.mp3")
+    return audio_html

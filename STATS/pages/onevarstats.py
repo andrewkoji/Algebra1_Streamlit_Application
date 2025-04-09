@@ -5,6 +5,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 
 
 def main():
@@ -47,36 +48,42 @@ def main():
         period_5 = st.checkbox("Period 5", value=False)
         period_9 = st.checkbox("Period 9", value=False)
 
+        # Define the base directory for the Excel files
+        base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../"))
+
+        # Debugging: Print the file path being used
+        st.write("Looking for file at:", os.path.join(base_dir, 'period1grades.xlsx'))
+
         if period_1 and period_5 and period_9:
-            period_1 = pd.read_excel('period1grades.xlsx').sort_values(by='MP3 Test (1x)')
-            period_5 = pd.read_excel('period5grades.xlsx').sort_values(by='MP3 Test (1x)')
-            period_9 = pd.read_excel('period9grades.xlsx').sort_values(by='MP3 Test (1x)')
+            period_1 = pd.read_excel(os.path.join(base_dir, 'period1grades.xlsx')).sort_values(by='MP3 Test (1x)')
+            period_5 = pd.read_excel(os.path.join(base_dir, 'period5grades.xlsx')).sort_values(by='MP3 Test (1x)')
+            period_9 = pd.read_excel(os.path.join(base_dir, 'period9grades.xlsx')).sort_values(by='MP3 Test (1x)')
             period1 = pd.concat([period_1, period_5, period_9], ignore_index=True)
             period1 = period1[period1["MP3 Test (1x)"] > 0]
         elif period_1 and period_5:
-            period_1 = pd.read_excel('period1grades.xlsx').sort_values(by='MP3 Test (1x)')
-            period_5 = pd.read_excel('period5grades.xlsx').sort_values(by='MP3 Test (1x)')
+            period_1 = pd.read_excel(os.path.join(base_dir, 'period1grades.xlsx')).sort_values(by='MP3 Test (1x)')
+            period_5 = pd.read_excel(os.path.join(base_dir, 'period5grades.xlsx')).sort_values(by='MP3 Test (1x)')
             period1 = pd.concat([period_1, period_5], ignore_index=True)
             period1 = period1[period1["MP3 Test (1x)"] > 0]
         elif period_1 and period_9:
-            period_1 = pd.read_excel('period1grades.xlsx').sort_values(by='MP3 Test (1x)')
-            period_9 = pd.read_excel('period9grades.xlsx').sort_values(by='MP3 Test (1x)')
+            period_1 = pd.read_excel(os.path.join(base_dir, 'period1grades.xlsx')).sort_values(by='MP3 Test (1x)')
+            period_9 = pd.read_excel(os.path.join(base_dir, 'period9grades.xlsx')).sort_values(by='MP3 Test (1x)')
             period1 = pd.concat([period_1, period_9], ignore_index=True)
             period1 = period1[period1["MP3 Test (1x)"] > 0]
         elif period_5 and period_9:
-            period_5 = pd.read_excel('period5grades.xlsx').sort_values(by='MP3 Test (1x)')
-            period_9 = pd.read_excel('period9grades.xlsx').sort_values(by='MP3 Test (1x)')
+            period_5 = pd.read_excel(os.path.join(base_dir, 'period5grades.xlsx')).sort_values(by='MP3 Test (1x)')
+            period_9 = pd.read_excel(os.path.join(base_dir, 'period9grades.xlsx')).sort_values(by='MP3 Test (1x)')
             period1 = pd.concat([period_5, period_9], ignore_index=True)
             period1 = period1[period1["MP3 Test (1x)"] > 0]
         ############## Period Options #################
         elif period_1:
-            period1 = pd.read_excel('period1grades.xlsx').sort_values(by='MP3 Test (1x)')
+            period1 = pd.read_excel(os.path.join(base_dir, 'period1grades.xlsx')).sort_values(by='MP3 Test (1x)')
             period1 = period1[period1["MP3 Test (1x)"] > 0]
         elif period_5:
-            period1 = pd.read_excel('period5grades.xlsx').sort_values(by='MP3 Test (1x)')
+            period1 = pd.read_excel(os.path.join(base_dir, 'period5grades.xlsx')).sort_values(by='MP3 Test (1x)')
             period1 = period1[period1["MP3 Test (1x)"] > 0]
         elif period_9:
-            period1 = pd.read_excel('period9grades.xlsx').sort_values(by='MP3 Test (1x)')
+            period1 = pd.read_excel(os.path.join(base_dir, 'period9grades.xlsx')).sort_values(by='MP3 Test (1x)')
             period1 = period1[period1["MP3 Test (1x)"] > 0]
         else:
             st.write("Please select at least one period.")
