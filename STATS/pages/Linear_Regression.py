@@ -30,7 +30,7 @@ def main():
     )
     images_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../images"))
     # Display the PNG in Streamlit
-    st.image(os.path.join(images_dir, "Q34june24.png"))
+    st.image(os.path.join(images_dir, "table.png"))
     # Perform linear regression
     x = df["Caffeine Consumption(mg)"]
     y = df["Sleep Quality Score(out of 10)"]
