@@ -9,44 +9,13 @@ import os
 
 
 def main():
-    # st.markdown(
-    #     """
-    #     <style>
-    #     /* Set the main background with a light mode and optional picture */
-    #     .stApp {
-    #         background: #ffffff; /* Light mode background color */
-    #         background-image: url("/cimages/multimages/16/system2401008797131253426.png"); /* Optional background picture */
-    #         background-size: cover;
-    #         color: #000000; /* Black text for light mode */
-    #     }
 
-    #     /* Set the sidebar background with a light mode and optional picture */
-    #     section[data-testid="stSidebar"] {
-    #         background: #ffffff; /* Light gray background for sidebar */
-    #         background-image: url("Graph3.gif"); /* Optional sidebar picture */
-    #         background-size: cover;
-    #         color: #000000; /* Black text for light mode */
-    #     }
-
-    #     /* Ensure text is readable on light backgrounds */
-    #     .stMarkdown, .stTextInput, .stButton {
-    #         color: #000000; /* Black text */
-    #     }
-    #     </style>
-    #     """,
-    #     unsafe_allow_html=True
-    # )
-    # st.title('MP3 Test Grades')
-
-    
-    #importing the data
-    
 
     with st.sidebar:
         st.title("Select the periods you would like to include:")
-        period_1 = st.checkbox("Period 1", value=True)
-        period_5 = st.checkbox("Period 5", value=False)
-        period_9 = st.checkbox("Period 9", value=False)
+        period_1 = st.checkbox("Dataset 1", value=True)
+        period_5 = st.checkbox("Dataset 2", value=False)
+        period_9 = st.checkbox("Dataset 3", value=False)
 
         # Define the base directory for the Excel files
         base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../"))
