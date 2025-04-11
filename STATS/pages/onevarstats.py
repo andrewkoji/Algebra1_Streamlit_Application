@@ -51,8 +51,7 @@ def main():
         # Define the base directory for the Excel files
         base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../"))
 
-        # Debugging: Print the file path being used
-        st.write("Looking for file at:", os.path.join(base_dir, 'period1grades.xlsx'))
+      
 
         if period_1 and period_5 and period_9:
             period_1 = pd.read_excel(os.path.join(base_dir, 'period1grades.xlsx')).sort_values(by='MP3 Test (1x)')
