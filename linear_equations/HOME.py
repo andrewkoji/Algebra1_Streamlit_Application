@@ -35,10 +35,10 @@ with col1:
     st.markdown("</ul>", unsafe_allow_html=True)
 
 with col2:
-    st.markdown("<h4 style='text-align: left; color: White;'>🤖 Chatbot</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left; color: White;'>SLOPE</h4>", unsafe_allow_html=True)
     st.markdown("<p style='color: White;'>This is a chatbot for math help</p>", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: left; color: White;'>📈 Linear Regression</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left; color: White;'>Verifying Solutions</h4>", unsafe_allow_html=True)
     st.markdown("<ul style='color: White;'>", unsafe_allow_html=True)
-    st.markdown("<li>LinReg (ax + b) - Linear Regression Equation</li>", unsafe_allow_html=True)
-    st.markdown("<li>Correlation Coefficient (r)</li>", unsafe_allow_html=True)
+    st.markdown("<li>Checking solutions for Equations in standard form</li>", unsafe_allow_html=True)
+    st.markdown("<li>Slope between two points</li>", unsafe_allow_html=True)
     st.markdown("</ul>", unsafe_allow_html=True)

@@ -49,6 +49,10 @@ if st.button("Generate New Examples"):
     st.query_params.clear()  # Simulate a page reload to generate new examples
 
 st.markdown("<h3 style='text-align: center;'>SLOPE</h3>", unsafe_allow_html=True)
+st.markdown("<h4 style='text-align: center;'>Slope of a line passing through two points</h4>", unsafe_allow_html=True)
+st.markdown("<h4 style='text-align: center;'>RISE OVER RUN</h4>", unsafe_allow_html=True)
+st.markdown("<h4 style='text-align: center;'>Slope (m) = (y2 - y1) / (x2 - x1)</h4>", unsafe_allow_html=True)
+
 st.header("", divider="rainbow")
 
 # st.markdown("<h3 style='text-align: center;'>Real-Time LaTeX Preview</h3>", unsafe_allow_html=True)
