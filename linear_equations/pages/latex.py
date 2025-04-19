@@ -1,0 +1,73 @@
+import streamlit as st
+from streamlit.components.v1 import html  # Add this import
+import requests
+
+st.markdown("<h3 style='text-align: center;'>Real-Time LaTeX Preview</h3>", unsafe_allow_html=True)
+
+# # Use HTML and JavaScript for real-time LaTeX rendering
+# html_code = r"""
+# <div style="text-align: center;">
+#     <div id="latex-output" style="margin-top: 20px; font-size: 20px; color: black; display: inline-block; border: 1px solid #ccc; padding: 10px; min-height: 50px; position: relative; background-color: white; border-radius: 10px;">
+#         <span style="color: gray; position: center" id="placeholder">Answer here...</span>
+#         <span id="cursor" style="display: block; position: absolute; width: 2px; height: 20px; background-color: black; animation: blink 1s step-end infinite;"></span>
+#     </div>
+#     <textarea id="latex-input" placeholder="Enter LaTeX expression..." style="opacity: 0; position: absolute; z-index: -1;"></textarea>
+# </div>
+# <script>
+#     const input = document.getElementById("latex-input");
+#     const output = document.getElementById("latex-output");
+#     const placeholder = document.getElementById("placeholder");
+#     const cursor = document.getElementById("cursor");
+
+#     // Focus on the hidden input when clicking the rendered LaTeX area
+#     output.addEventListener("click", () => {
+#         input.focus();
+#     });
+
+#     // Update the rendered LaTeX in real-time as the user types
+#     input.addEventListener("input", () => {
+#         const latex = input.value;
+
+#         if (latex.trim() === "") {
+#             placeholder.style.display = "inline";
+#             output.innerHTML = "";
+#         } else {
+#             placeholder.style.display = "none";
+#             // Render the LaTeX without modifying the input value
+#             const renderedLatex = latex.replace(/(\d+)\/(\d+)/g, "\\frac{$1}{$2}");
+#             output.innerHTML = katex.renderToString(renderedLatex, { throwOnError: false });
+#         }
+#     });
+
+#     // Ensure the cursor stays visible even when the input loses focus
+#     input.addEventListener("blur", () => {
+#         cursor.style.display = "block";
+#     });
+
+#     // Automatically focus on the hidden input when the page loads
+#     window.onload = () => {
+#         input.focus();
+#     };
+# </script>
+# <style>
+#     @keyframes blink {
+#         50% {
+#             opacity: 0;
+#         }
+#     }
+# </style>
+# <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css">
+# <script src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js"></script>
+# """
+response = requests.get('https://fastapi-b6dv.onrender.com/latex-textbox')
+
+# Parse the JSON response
+if response.status_code == 200:
+    html_code = response.json().get('latex_html_code', '')
+else:
+    st.error("Failed to fetch LaTeX textbox. Please try again later.")
+    html_code = ""
+
+# Render the HTML and JavaScript
+if html_code:
+    html(html_code, height=200)
