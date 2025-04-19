@@ -48,13 +48,14 @@ def SLOPE():
 if st.button("Generate New Examples"):
     st.query_params.clear()  # Simulate a page reload to generate new examples
 
-st.markdown("<h3 style='text-align: center;'>SLOPE</h3>", unsafe_allow_html=True)
-st.markdown("<h4 style='text-align: center;'>Slope of a line passing through two points</h4>", unsafe_allow_html=True)
-st.markdown("<h4 style='text-align: center;'>RISE OVER RUN</h4>", unsafe_allow_html=True)
-st.markdown("<h4 style='text-align: center;'>Slope (m) = (y2 - y1) / (x2 - x1)</h4>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>SLOPE</h3>", unsafe_allow_html=True)
+st.header("", divider="rainbow")
+st.markdown("<h3 style='text-align: center;'>SLOPE formula</h3>", unsafe_allow_html=True)
+st.latex(r'\frac{y_2 - y_1}{x_2 - x_1}')
 
 st.header("", divider="rainbow")
-
+st.header("Examples")
+st.divider()
 # st.markdown("<h3 style='text-align: center;'>Real-Time LaTeX Preview</h3>", unsafe_allow_html=True)
 
 # # Use HTML and JavaScript for real-time LaTeX rendering
@@ -128,10 +129,10 @@ for i in range(1, 4):  # Loop to show 3 examples
         st.latex('(x_2, y_2)')
         point_two = slope_data['point2']
         st.latex(point_two)
+    
 
-    st.markdown("<h3 style='text-align: center;'>SLOPE formula</h3>", unsafe_allow_html=True)
-    st.latex(r'\frac{y_2 - y_1}{x_2 - x_1}')
-    st.latex(slope_data["formula"])
+    with st.expander("Show Solution:"):
+        st.latex(slope_data["formula"])
     st.divider()  # Add a divider between examples
 
 
