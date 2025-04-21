@@ -18,7 +18,18 @@ if "b" not in st.session_state:
 m = st.session_state.m
 b = st.session_state.b
 arith_sequence = [(m)*x + b for x in range(0, 200)]
-geo_sequence = [m*(b)**x for x in range(0, 200)]
+
+# Handle overflow in geometric sequence by capping large values
+geo_sequence = []
+for x in range(0, 200):
+    try:
+        value = m * (b ** x)
+        if abs(value) > 1e308:  # Cap values exceeding the floating-point limit
+            value = float('inf') if value > 0 else float('-inf')
+        geo_sequence.append(value)
+    except OverflowError:
+        geo_sequence.append(float('inf') if b > 0 else float('-inf'))
+
 df_arith = pd.DataFrame(arith_sequence, columns=["Arithmetic Sequence"])
 df_geo = pd.DataFrame(geo_sequence, columns=["Geometric Sequence"])
 
@@ -62,10 +73,10 @@ with col_2:
         )
         st.markdown("<li>Common Ratio: {}</li>".format(r), unsafe_allow_html=True)
 # SECTION: Animated Square Pattern
-st.title("Square Pattern Animation")
+st.title("Patterns - Visual")
 
 # Create a figure for the animation
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(12, 5))
 ax.set_xlim(-5, 100)
 ax.set_ylim(-5, 5)
 ax.axis('off')
@@ -90,7 +101,7 @@ for current_n in range(1, n + 1):
     num_boxes = 2 * current_n - 1  # Calculate the number of boxes for the current configuration
     for i in range(num_boxes):
         make_square(shift + 2 * i)  # Apply the shift for the current configuration
-    shift += 2 * num_boxes + 2  # Update the shift for the next configuration, adding 1 unit of spacing
+    shift += 2 * num_boxes + 5  # Update the shift for the next configuration, adding 1 unit of spacing
 
 # Initialize the line for animation
 line, = ax.plot(x, y, lw=2, color='blue')
@@ -109,3 +120,5 @@ ani = FuncAnimation(fig, update, frames=frames, interval=100, blit=True)
 
 # Display the animation in Streamlit
 st.pyplot(fig)
+
+
