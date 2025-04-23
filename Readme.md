@@ -16,9 +16,9 @@ call the API on for use. The goal for the API is to build a completely independe
 ## Deployment - Render
 The curriculum is deployed through streamlit on the Render platform. Here are the links to the completed parts of the curriculum so far!
 
-1. STATS - https://dashboard.render.com/web/srv-cvonnja4d50c73bkb5r0
-2. LINEAR FUNCTIONS - https://dashboard.render.com/web/srv-d01eogadbo4c738mq450
-3. LINEAR-QUADRATIC SYSTEMS - https://dashboard.render.com/web/srv-cvhh9k2qgecs73d0rpa0
+1. STATS - https://algebra1-curriculum.onrender.com/
+2. LINEAR FUNCTIONS - https://linear-functions.onrender.com/
+3. LINEAR-QUADRATIC SYSTEMS - https://linear-quadratic-system.onrender.com/
 4. SEQUENCES - https://algebra1-streamlit-application.onrender.com/
 
 The applications are developed with intention to align with the Algebra 1 Next Generation Standards. Instructors should be able to use this platform to aid in their
