@@ -19,10 +19,10 @@ for x in range(0, 200):
     try:
         value = m * (b ** x)
         if abs(value) > 1e308:  # Cap values exceeding the floating-point limit
-            value = int('inf') if value > 0 else int('-inf')
+            value = float('inf') if value > 0 else float('-inf')
         geo_sequence.append(value)
     except OverflowError:
-        geo_sequence.append(int('inf') if b > 0 else int('-inf'))
+        geo_sequence.append(float('inf') if b > 0 else float('-inf'))
 
 df_geo = pd.DataFrame(geo_sequence, columns=["Geometric Sequence"])
 
