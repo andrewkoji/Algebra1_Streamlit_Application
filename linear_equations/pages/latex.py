@@ -14,26 +14,20 @@ else:
     html_code = r"""
     <div style="text-align: center;">
         <div id="latex-output" style="margin-top: 20px; font-size: 20px; color: black; display: inline-block; border: 1px solid #ccc; padding: 10px; min-height: 50px; position: relative; background-color: white; border-radius: 10px;">
-            <span style="color: gray;" id="placeholder">Enter LaTeX here...</span>
+            <span id="latex-rendered"></span>
         </div>
-        <textarea id="latex-input" placeholder="Enter LaTeX expression..." style="width: 100%; height: 50px; margin-top: 10px;"></textarea>
     </div>
     <script>
-        const input = document.getElementById("latex-input");
-        const output = document.getElementById("latex-output");
-        const placeholder = document.getElementById("placeholder");
+        const latexRendered = document.getElementById("latex-rendered");
 
-        input.addEventListener("input", () => {
-            const latex = input.value;
-            if (latex.trim() === "") {
-                placeholder.style.display = "inline";
-                output.innerHTML = "";
-            } else {
-                placeholder.style.display = "none";
-                output.innerHTML = latex;
-            }
-        });
+        // Example LaTeX content for demonstration
+        const latex = "\\frac{a}{b} + c^2";
+
+        // Render the LaTeX content using KaTeX
+        latexRendered.innerHTML = katex.renderToString(latex, { throwOnError: false });
     </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js"></script>
     """
 
 # Render the HTML and JavaScript
