@@ -23,35 +23,35 @@ def main():
       
 
         if period_1 and period_5 and period_9:
-            period_1 = pd.read_excel(os.path.join(base_dir, 'period1grades.xlsx')).sort_values(by='MP3 Test (1x)')
-            period_5 = pd.read_excel(os.path.join(base_dir, 'period5grades.xlsx')).sort_values(by='MP3 Test (1x)')
-            period_9 = pd.read_excel(os.path.join(base_dir, 'period9grades.xlsx')).sort_values(by='MP3 Test (1x)')
+            period_1 = pd.read_excel(os.path.join(base_dir, 'dataset1.xlsx')).sort_values(by='MP3 Test (1x)')
+            period_5 = pd.read_excel(os.path.join(base_dir, 'dataset5.xlsx')).sort_values(by='MP3 Test (1x)')
+            period_9 = pd.read_excel(os.path.join(base_dir, 'dataset9.xlsx')).sort_values(by='MP3 Test (1x)')
             period1 = pd.concat([period_1, period_5, period_9], ignore_index=True)
             period1 = period1[period1["MP3 Test (1x)"] > 0]
         elif period_1 and period_5:
-            period_1 = pd.read_excel(os.path.join(base_dir, 'period1grades.xlsx')).sort_values(by='MP3 Test (1x)')
-            period_5 = pd.read_excel(os.path.join(base_dir, 'period5grades.xlsx')).sort_values(by='MP3 Test (1x)')
+            period_1 = pd.read_excel(os.path.join(base_dir, 'dataset1.xlsx')).sort_values(by='MP3 Test (1x)')
+            period_5 = pd.read_excel(os.path.join(base_dir, 'dataset5.xlsx')).sort_values(by='MP3 Test (1x)')
             period1 = pd.concat([period_1, period_5], ignore_index=True)
             period1 = period1[period1["MP3 Test (1x)"] > 0]
         elif period_1 and period_9:
-            period_1 = pd.read_excel(os.path.join(base_dir, 'period1grades.xlsx')).sort_values(by='MP3 Test (1x)')
-            period_9 = pd.read_excel(os.path.join(base_dir, 'period9grades.xlsx')).sort_values(by='MP3 Test (1x)')
+            period_1 = pd.read_excel(os.path.join(base_dir, 'dataset1.xlsx')).sort_values(by='MP3 Test (1x)')
+            period_9 = pd.read_excel(os.path.join(base_dir, 'dataset9.xlsx')).sort_values(by='MP3 Test (1x)')
             period1 = pd.concat([period_1, period_9], ignore_index=True)
             period1 = period1[period1["MP3 Test (1x)"] > 0]
         elif period_5 and period_9:
-            period_5 = pd.read_excel(os.path.join(base_dir, 'period5grades.xlsx')).sort_values(by='MP3 Test (1x)')
-            period_9 = pd.read_excel(os.path.join(base_dir, 'period9grades.xlsx')).sort_values(by='MP3 Test (1x)')
+            period_5 = pd.read_excel(os.path.join(base_dir, 'dataset5.xlsx')).sort_values(by='MP3 Test (1x)')
+            period_9 = pd.read_excel(os.path.join(base_dir, 'dataset9.xlsx')).sort_values(by='MP3 Test (1x)')
             period1 = pd.concat([period_5, period_9], ignore_index=True)
             period1 = period1[period1["MP3 Test (1x)"] > 0]
         ############## Period Options #################
         elif period_1:
-            period1 = pd.read_excel(os.path.join(base_dir, 'period1grades.xlsx')).sort_values(by='MP3 Test (1x)')
+            period1 = pd.read_excel(os.path.join(base_dir, 'dataset1.xlsx')).sort_values(by='MP3 Test (1x)')
             period1 = period1[period1["MP3 Test (1x)"] > 0]
         elif period_5:
-            period1 = pd.read_excel(os.path.join(base_dir, 'period5grades.xlsx')).sort_values(by='MP3 Test (1x)')
+            period1 = pd.read_excel(os.path.join(base_dir, 'dataset5.xlsx')).sort_values(by='MP3 Test (1x)')
             period1 = period1[period1["MP3 Test (1x)"] > 0]
         elif period_9:
-            period1 = pd.read_excel(os.path.join(base_dir, 'period9grades.xlsx')).sort_values(by='MP3 Test (1x)')
+            period1 = pd.read_excel(os.path.join(base_dir, 'dataset9.xlsx')).sort_values(by='MP3 Test (1x)')
             period1 = period1[period1["MP3 Test (1x)"] > 0]
         else:
             st.write("Please select at least one period.")
