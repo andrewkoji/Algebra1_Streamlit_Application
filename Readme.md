@@ -28,6 +28,7 @@ instruction and there is also practice problems for students to use.
 
 # Contact Me
 <br>
+
 - LinkedIn - https://www.linkedin.com/in/andrewlevinton/
 - WordPress - https://datascience793.wordpress.com/
 - Email - alevinton151@gmail.com
