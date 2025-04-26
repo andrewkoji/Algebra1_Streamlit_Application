@@ -10,8 +10,10 @@ an even more serious problem. Students need more interactive materials that enga
 The traditional pencil and paper model is not enough for those at serious deficits. 
 
 ## FastAPI - Deployment
-As a library for use in the application, a FastAPI Api has been developed! So far, it contains various mathematical functions and concepts that the apps
-call the API on for use. The goal for the API is to build a completely independent source for the applications to use when deployed. 
+As a library for use in the application, a FastAPI Api has been developed! So far, it contains various mathematical functions and concepts that the apps  
+call the API on for use. The goal for the API is to build a completely independent source for the applications to use when deployed.  
+
+<br>
 
 ## Deployment - Render
 The curriculum is deployed through streamlit on the Render platform. Here are the links to the completed parts of the curriculum so far!
@@ -23,3 +25,9 @@ The curriculum is deployed through streamlit on the Render platform. Here are th
 
 The applications are developed with intention to align with the Algebra 1 Next Generation Standards. Instructors should be able to use this platform to aid in their
 instruction and there is also practice problems for students to use. 
+
+# Contact Me
+<br>
+LinkedIn - https://www.linkedin.com/in/andrewlevinton/
+WordPress - https://datascience793.wordpress.com/
+Email - alevinton151@gmail.com
